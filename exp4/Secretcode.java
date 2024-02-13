@@ -3,30 +3,8 @@ package com.exp4;
 import java.util.Random;
 import java.util.Scanner;
 class Secret{
-  void decode(String s,int min,int max){
-      for(int key = min ; key<max ; key++){
-     char [] h = new char[s.length()] ;
-     for(int i = 0 ; i<s.length();i++)
-     {
-         char c = s.charAt(i) ;
-         if(c<=126&&c>34+key)
-         {
-             h[i] = (char) (c - key);
-         }
-         else
-         {
-             h[i] = (char)(c +95 - key) ;
-         }
-     }
-          System.out.print(key+":" );
-          for(int i = 0 ; i<s.length() ; i++){
-         System.out.print(h[i]) ;
-     }
-     System.out.println() ;
-      }
-     }
-    void decode(String s,int key){
-
+    void decode(String s,int min,int max){
+        for(int key = min ; key<max ; key++){
             char [] h = new char[s.length()] ;
             for(int i = 0 ; i<s.length();i++)
             {
@@ -40,29 +18,51 @@ class Secret{
                     h[i] = (char)(c +95 - key) ;
                 }
             }
+            System.out.print(key+":" );
             for(int i = 0 ; i<s.length() ; i++){
                 System.out.print(h[i]) ;
             }
             System.out.println() ;
         }
+    }
+    void decode(String s,int key){
 
-     void encode(String s , int key ){
-      char [] h = new char[s.length()] ;
-      for(int i = 0 ; i<s.length() ; i++)
-      {
-          char c = s.charAt(i) ;
-          if(c+key>126){
-            h[i]  = (char)(c+key - 95) ;
-          }
-          else
-          {
-              h[i] = (char)(c+key) ;
-          }
-      }
-      for(int i = 0 ;i<s.length();i++){
-          System.out.print(h[i]) ;
-      }
-     }
+        char [] h = new char[s.length()] ;
+        for(int i = 0 ; i<s.length();i++)
+        {
+            char c = s.charAt(i) ;
+            if(c<=126&&c>34+key)
+            {
+                h[i] = (char) (c - key);
+            }
+            else
+            {
+                h[i] = (char)(c +95 - key) ;
+            }
+        }
+        for(int i = 0 ; i<s.length() ; i++){
+            System.out.print(h[i]) ;
+        }
+        System.out.println() ;
+    }
+
+    void encode(String s , int key ){
+        char [] h = new char[s.length()] ;
+        for(int i = 0 ; i<s.length() ; i++)
+        {
+            char c = s.charAt(i) ;
+            if(c+key>126){
+                h[i]  = (char)(c+key - 95) ;
+            }
+            else
+            {
+                h[i] = (char)(c+key) ;
+            }
+        }
+        for(int i = 0 ;i<s.length();i++){
+            System.out.print(h[i]) ;
+        }
+    }
 
 }
 public class Secretcode

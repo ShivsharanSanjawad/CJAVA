@@ -1,4 +1,4 @@
-package com.exp4;
+
 
 import java.util.Random;
 import java.util.Scanner;
@@ -89,7 +89,7 @@ public class Secretcode
                     } else {
                         sc.encode(s, key);
                     }
-                    System.out.println("Key is " + key);
+                    System.out.println(" Key is " + key);
                 }
                 case 2 -> {
                     System.out.println("Enter the coded string");

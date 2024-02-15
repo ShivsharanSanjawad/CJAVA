@@ -51,11 +51,11 @@ class Stats{
     }
 
     double median(){
-        if(a.length%2==0)
+        if(a.length%2==1)
         {
-            return a[a.length/2] ;
+            return a[(a.length-1)/2] ;
         }
-        return (a[(a.length+1)/2]+a[(a.length-1)/2])/2 ;
+        return (a[(a.length)/2]+a[(a.length)/2 -1])/2.0 ;
     }
     void standardDeviation(){
         double sda, sdm ;
@@ -89,7 +89,7 @@ public class GradeStats {
         double a[] = new double[n] ;
         for(int i = 0 ; i<n ; i++)
         {
-            System.out.println("Enter the marks of student:"+(i+1));
+            System.out.println("Enter the marks of student "+(i+1)+":");
               a[i] = in.nextDouble() ;
         }
         Stats s = new Stats(a) ;

@@ -51,9 +51,9 @@ public class Hire {
         int opt ;
         do{
             System.out.println("Enter the post for which you want to hire") ;
-            System.out.println("1.Project Manager");
+            System.out.println("1.Programmer");
             System.out.println("2.Team Manager") ;
-            System.out.println("3.Programmer") ;
+            System.out.println("3.Project Manager") ;
             System.out.println("4.exit") ;
             opt = in.nextInt() ;
             switch(opt){

@@ -103,7 +103,7 @@ import java.util.Scanner ;
 			 	  
 			 	    System.out.println("The numbers you entered are as follows");
 			 	    printArray(a) ; 
-			 	    System.out.println(String.format("The average is :%.2f",mean(a))) ;
+			 	    System.out.println(String.format("The averagis :%.2f",mean(a))) ;
 			 	    System.out.println(String.format("The minimum is :%.2f",min(a)));
 			 	    System.out.println(String.format("The maximum is :%.2f",max(a))) ; 
 			 	    System.out.println(String.format("The median  is :%.2f",median(a))) ;

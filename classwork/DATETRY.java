@@ -24,7 +24,7 @@ import java.util.Scanner ;
             }
             return true ;                                    /* if number is divisible by 4 but not by 100 then true */
           }
-          return false ;                                 /* if not divisible by 4 then also false */
+          return false ;                                 /* if not divisible by 4 then also false*/
         }
         boolean isright(){
             int a[]   ;

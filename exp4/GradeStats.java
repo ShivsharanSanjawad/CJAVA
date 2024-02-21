@@ -1,6 +1,5 @@
-package com.exp4;
 
-import java.sql.SQLOutput;
+
 import java.util.Scanner;
 
 class Stats{

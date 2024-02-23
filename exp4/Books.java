@@ -20,7 +20,7 @@ public class Books
 		 int n = row ; 
 		 System.out.println("Warning enter the rating by readers between 1 to 5") ;
 		 for(int i = 0 ; i< row ; i++){
-			 System.out.println("Enter the name of movie "+(i+1)+" :") ; 
+			 System.out.println("Enter the name of Book "+(i+1)+" :") ; 
 			 in.nextLine() ;
 			 name[i]= in.nextLine() ;                     /* input name of movie */
 			 

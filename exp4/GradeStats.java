@@ -65,10 +65,10 @@ class Stats{                                          /* class for all methods a
     }
 
     void analyise(){                                                   /* print all data related to data set through constructor */
-        System.out.println("Average is "+average());
+        System.out.println(String.format("Average is %.2f",average()));
         System.out.println(String.format("Minimum is %.0f",min()));
         System.out.println(String.format("Maximum is %.0f",max()));
-        System.out.println("Median is "+median()) ;
+        System.out.println(String.format("Median is %.2f",median())) ;
         standardDeviation();
     }
 

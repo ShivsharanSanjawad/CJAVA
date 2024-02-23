@@ -1,79 +1,73 @@
-
-
 import java.util.Scanner;
 
-class Stats{
+class Stats{                                          /* class for all methods and properties related to problem */
     private double a[] ;
-    Stats(double []arr){
+    Stats(double []arr){                             /* constructor to initialize the varibles */
         a = new double[arr.length];
         for (int i = 0; i < arr.length ; i++) {
             a[i] = arr[i] ;
         }
-        sort() ;
+        sort() ;                                    /* calling sort method to sort an array */
     }
-    Stats(){
+    Stats(){                                        /* default constructor */
 
     }
-    void sort(){
+    void sort(){                                   /* used modified bubble sort */
         for(int i = 0 ; i< a.length;i++)
         {
-            boolean flag = true ;
+            boolean flag = true ;                 /* declared flag it changes if the swap between 2 elements happen at least once */
             for(int j=0 ; j<a.length - i -1 ; j++)
             {
-                if(a[j]>a[j+1])
+                if(a[j]>a[j+1])                   /* swap to elements if left one is greater than right element */
                 {
                     double temp = a[j] ;
                     a[j] = a[j+1] ;
                     a[j+1] = temp ;
-                    flag = false ;
+                    flag = false ;                 /* change the flag as swap occured */
                 }
             }
-            if(flag){
+            if(flag){                                    /* if not swapped that means array already sorted so break the loop */
                 break ;
             }
         }
     }
-    double average(){
-       double sum = 0 ;
+    double average(){                             /* method to find average */
+       double sum = 0 ;                               
        for(int i = 0 ;i<a.length;i++) {
-           sum = sum + a[i];
+           sum = sum + a[i];                      /* finding sum of all elements using for loop */
        }
-       return sum/a.length ;
+       return sum/a.length ;                       /* return average i.e. divide sum by number of elements and return */
     }
 
-    double min(){
+    double min(){                                  /* method to find minimum value which returns minimum value in sorted array */
         return a[0] ;
     }
-
-    double max(){
+ 
+    double max(){                                 /* method to find maximum value which returns maximum value in sorted array */
         return a[a.length-1] ;
     }
 
-    double median(){
-        if(a.length%2==1)
+    double median(){                                /* method to find median */
+        if(a.length%2==1)                            /* return middle element if number of element is odd */
         {
             return a[(a.length-1)/2] ;
         }
-        return (a[(a.length)/2]+a[(a.length)/2 -1])/2.0 ;
+        return (a[(a.length)/2]+a[(a.length)/2 -1])/2.0 ;    /* return average of middle two elements if number of elements is even */
     }
-    void standardDeviation(){
-        double sda, sdm ;
+    void standardDeviation(){                            /* method to find the standard deviation */
+        double sda ;
         sda = 0 ;
-        sdm = 0 ;
         double avg = average() ;
-        double median = median() ;
-        for(int i =  0 ;i<a.length;i++){
+        for(int i =  0 ;i<a.length;i++){                 /* find sum of square of deviation from mean */
             sda += (a[i]-avg)*(a[i]-avg) ;
-            sdm += (a[i]-avg)*(a[i]-avg) ;
         }
-        System.out.println("Standard deviation about mean is "+(Math.sqrt(sda/a.length)));
-        System.out.println("Standard deviation about median is "+(Math.sqrt(sdm/a.length)));
+        System.out.println(String.format("Standard deviation about mean is %.2f",(Math.sqrt(sda/a.length)))); /* divide that sum by number of elements and get varience and square root of that is standard deviation*/
     }
 
-    void analyise(){
+    void analyise(){                                                   /* print all data related to data set through constructor */
         System.out.println("Average is "+average());
-        System.out.println("Minimum is "+min());
-        System.out.println("Maximum is "+max());
+        System.out.println(String.format("Minimum is %.0f",min()));
+        System.out.println(String.format("Maximum is %.0f",max()));
         System.out.println("Median is "+median()) ;
         standardDeviation();
     }
@@ -81,17 +75,17 @@ class Stats{
 }
 
 public class GradeStats {
-    public static void main(String[] args) {
-        Scanner in = new Scanner(System.in) ;
+    public static void main(String[] args) {                              /* main method */
+        Scanner in = new Scanner(System.in) ;                                  /* creating the object of Scanner class to take input */
         System.out.println("Enter the number of Students :");
-        int n = in.nextInt() ;
+        int n = in.nextInt() ;                        /* input number of students */
         double a[] = new double[n] ;
         for(int i = 0 ; i<n ; i++)
         {
-            System.out.println("Enter the marks of student "+(i+1)+":");
+            System.out.println("Enter the marks of student "+(i+1)+":");   /* input for marks of each student */
               a[i] = in.nextDouble() ;
         }
-        Stats s = new Stats(a) ;
-        s.analyise();
+        Stats s = new Stats(a) ;          /* create a object of stats class */
+        s.analyise();                     /* calling a method that print all information about input of students */
     }
 }

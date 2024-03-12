@@ -66,9 +66,10 @@ class Lock {
        
         Random r = new Random() ;
         Decrypt d = new Decrypt() ; 
-        int key = r.nextInt(100000) +1;
+        int key = r.nextInt(1000) +1;
         d.encode(line,key) ;
          System.out.println();
+         System.out.println(key) ;
             return "You're Welcome to the group";
         }
         return "You can leave";

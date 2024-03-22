@@ -1,7 +1,7 @@
-	class Employee {
+	class Employee {           /* class Employee with salary */
      double salary =10000  ;
      
-     double getsalary(){
+     double getsalary(){    /* getter method for getsalary */
         return 10000 ; 
      }
 		
@@ -9,16 +9,16 @@
       return 0 ; 
      }
      
-     void getsalarywithbonus(){
+     void getsalarywithbonus(){    /*get salary with bonus */
      System.out.println("Salary with bonus is "+(getsalary()+getbonus())) ; 
      }
 	}
 	
 	
-	class Intern extends Employee {
-	double salary  ; 
+	class Intern extends Employee {   /* class Intern that extends employee class */
+	double salary  ;           /* attribute salary */
 
-    double getsalary(){
+    double getsalary(){        /*overriden method of getsalary() and getbonus() and getsalarywithbonus() */
     this.salary = super.salary * 0.75 ; 
     return salary ;
     }
@@ -34,7 +34,7 @@
 	
 	
 	
-	class Clerk extends Employee {
+	class Clerk extends Employee {      /*class Clerk that extends Employee class */
 	double salary  ; 
 
   
@@ -53,9 +53,7 @@
 	}
 	
 	
-	
-	
-	class Manager extends Employee {
+	class Manager extends Employee {   /*class Manager that extends employee class */
 	double salary  ; 
 	
     double getsalary(){
@@ -72,10 +70,12 @@
      }
 	}
 	
+	
+	/*all above class that are extending the employee class have only difference in the salary and bonus */
 	class Main{
 	
 	public static void main (String []args) {
-	 
+	  /* created objects of all the above classes and called the different methods */
 	 Employee e = new Employee() ; 
 	 System.out.println("Employee salary is "+ e.getsalary()) ; 
 	 System.out.println("Employee has got bonus of "+e.getbonus()) ; 
@@ -92,12 +92,7 @@
 	  System.out.println("Manager salary is "+ m.getsalary()) ; 
 	 System.out.println("Manager has got bonus of "+m.getbonus()) ; 
 	m.getsalarywithbonus() ;
-
-
-
-
-
-   }
+    }
    
 	}
 	

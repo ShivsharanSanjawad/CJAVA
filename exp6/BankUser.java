@@ -3,22 +3,22 @@
 import java.util.Calendar;
 import java.util.Scanner;
 
-class Bank {
+class Bank {                           /* created the Bank class with attribute rate_of_interest */
     double rate_of_interest ;
 
-    public double getRate_of_interest() {
+    public double getRate_of_interest() {          /* getter method for rate_of_interest */
         return rate_of_interest;
     }
 
 
 }
-class SBI_Bank extends Bank{
+class SBI_Bank extends Bank{             /* class SBI_BANK that extends Bank with attributes time_period , interest , amount */
     int time_period ;
     double interest ;
     double amount  ;
 
-    SBI_Bank(int time,double amount)
-    {    if(time<7||time>180)
+    SBI_Bank(int time,double amount)               /* constructor fo SBI_BANK with time and amount */
+    {    if(time<7||time>180) 
     {
         System.out.println("Error!");
         System.exit(1) ;
@@ -32,7 +32,7 @@ class SBI_Bank extends Bank{
         System.out.println("Deposited Successfully");
     }
     SBI_Bank(){}
-    public double get_rate_of_interest()
+    public double get_rate_of_interest()              /*method to get rate_of interest depending on the time_period */
     {
         int opt ;
         if(time_period>=7&&time_period<=45)
@@ -43,16 +43,17 @@ class SBI_Bank extends Bank{
             this.interest = 4.10 ;
         return interest ;
     }
-    public double getamount(){
+    public double getamount(){                  /*calculating total amount using the compound interest formula */
         return  amount *Math.pow((1+(get_rate_of_interest())/100) , time_period) ;
     }
-    public void get_details()
-    {
-        Calendar c = Calendar.getInstance() ;
-        c.add(Calendar.DATE ,time_period) ;
-        System.out.println("You will get the "+getamount()+"Rs. on"+c.getTime());
+    public void get_details() 
+    {                                         
+        Calendar c = Calendar.getInstance() ;         /*get instance of calender class */
+        c.add(Calendar.DATE ,time_period) ;                        /* add the time_period to today to get date of maturity */
+        System.out.println("You will get the "+getamount()+"Rs. on"+c.getTime());        /*display total amount and date of maturity */
     }
 }
+/*similar things done in all classes */
 class ICIC_Bank extends Bank{
     int time_period ;
     double interest ;
@@ -100,6 +101,7 @@ class ICIC_Bank extends Bank{
         System.out.println("You will get the "+getamount()+"Rs. on"+c.getTime());
     }
 }
+
 class AXIS_Bank extends Bank{
     int time_period ;
     double interest ;
@@ -144,11 +146,11 @@ class AXIS_Bank extends Bank{
     {
         Calendar c = Calendar.getInstance() ;
         c.add(Calendar.DATE ,time_period) ;
-        System.out.println("You will get the "+getamount()+"Rs. on"+c.getTime());
+        System.out.println(String.format("You will get the %.2fRs. on %s",getamount(),c.getTime()));
     }
 }
-public class BankUser {
-    public static void showOptions() {
+public class BankUser {   /*class with main method */
+    public static void showOptions() {           /* method to show options */
         System.out.println("Choose the option");
         System.out.println("1. Get rate of interest");
         System.out.println("2. Get total amount after maturity");
@@ -159,7 +161,8 @@ public class BankUser {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
 
-        while (true) {
+        while (true) {            /* run infinite loop unless user asks to stop */
+        /*get required inouts from user */
             System.out.println("Enter the amount you want to deposit");
             double amount = in.nextDouble();
             System.out.println("Enter the number of days for which you want to submit");
@@ -168,13 +171,14 @@ public class BankUser {
             System.out.println("1. SBI BANK\n2. ICIC BANK\n3. AXIS BANK\n4. Exit");
             int opt = in.nextInt();
             int opt2 ;
+            /* create objects depending on the option choosen */
             switch (opt) {
                 case 1:
                     SBI_Bank sbiBank = new SBI_Bank(time, amount);
                     do{
-                    showOptions();
+                    showOptions();       /*show the menu */
                      opt2 = in.nextInt();
-                    switch (opt2) {
+                    switch (opt2) {  /* print the information depending on option choosen */
                         case 1:
                             System.out.println("The rate of interest is " + sbiBank.get_rate_of_interest());
                             break;
@@ -184,12 +188,13 @@ public class BankUser {
                         case 3:
                             break;
                         case 4:
-                            System.exit(0);
+                            System.exit(0);      /*stop the program */
                         default:
                             System.out.println("Invalid choice");
                             break;
                     }}while(opt2!=3) ;
                     break;
+                    /*similar things in all remaining */
                 case 2:
                     ICIC_Bank icicBank = new ICIC_Bank(time, amount);
                        do{
